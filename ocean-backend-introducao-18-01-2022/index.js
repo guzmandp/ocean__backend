@@ -1,13 +1,21 @@
 const express = require('express')
 const { MongoClient, ObjectId } = require("mongodb");
+require("dotenv").config();
+
 
 const app = express()
-const port = 3000
 
-const mongoURL = "mongodb+srv://admin:tuloCFaJ279iturp@cluster0.pc09j.mongodb.net/";
+ const port = process.env.PORT || 3030
+ const dbHost = process.env.DB_HOST
+ const dbUser = process.env.DB_USER
+ const dbPassword = process.env.DB_PASSWORD
+
+const mongoURL = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}`;
+
 const dbName = "ocena_bancodados_18_01_2022_darwin";
 
 async function main() {
+    
     const client = await MongoClient.connect(mongoURL);
     
     const db = client.db(dbName);
