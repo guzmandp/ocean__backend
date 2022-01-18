@@ -4,12 +4,10 @@ const { MongoClient, ObjectId } = require("mongodb");
 const app = express()
 const port = 3000
 
-const mongoURL = "mongodb+srv://admin:hd2rV5duoPrrIi3t@cluster0.jup2c.mongodb.net/";
+const mongoURL = "mongodb+srv://admin:tuloCFaJ279iturp@cluster0.pc09j.mongodb.net/";
 const dbName = "ocena_bancodados_18_01_2022_darwin";
 
 async function main() {
-    //cluster0.4uek1.mongodb.net
-
     const client = await MongoClient.connect(mongoURL);
     
     const db = client.db(dbName);
